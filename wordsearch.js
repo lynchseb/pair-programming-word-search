@@ -2,17 +2,19 @@ const wordSearch = (letters, word) => {
     if(letters.length === 0) {
         return false;
     }
-    const horizontalJoin = letters.map(ls => ls.join(''))
+    const horizontalJoin = letters.map(phrase => phrase.join(''))
     // console.log(horizontalJoin)
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
-    const verticalArray = letters[0].map((column, ls) => letters.map(row => row[ls]))
-    const verticalJoin = verticalArray.map(ls => ls.join(''))
+    const verticalArray = letters[0].map((column, phrase) => letters.map(row => row[phrase]))
+    const verticalJoin = verticalArray.map(phrase => phrase.join(''))
     for (l of verticalJoin) {
         if (l.includes(word))
         return true
     }
+
+
     // console.log(verticalArray, verticalJoin)
     return false;
 }
